@@ -1,4 +1,5 @@
 hello
 git config --global user.email "your email"
 git config --global user.name "your name"
-lets see if this change worked
+
+Check to see if pull!
