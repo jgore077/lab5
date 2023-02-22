@@ -1,3 +1,3 @@
-class Passengers{
+class Passengers {
     
 }
