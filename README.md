@@ -3,9 +3,15 @@ Initially I figured we would have a passenger & airline class. Airline would hav
 
 Jimmy:
 Write airline and passenger classes to completion
+
+
 William:
 Testing the program/Simulation
+
+
 Anusha:
 Reading the passenger files, check in
+
+
 Ahmad:
-Boarding
+Boarding and random chances
