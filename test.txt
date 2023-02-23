@@ -1,5 +1,0 @@
-hello
-git config --global user.email "your email"
-git config --global user.name "your name"
-
-Check to see if pull!
