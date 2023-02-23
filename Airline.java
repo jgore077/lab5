@@ -25,7 +25,7 @@ public class Airline {
                 economy--;
             }
     }
-    public void checkInAtGate(){
+    public void checkInAtGate(Airline plane,String passengerName){
 
     }
 
