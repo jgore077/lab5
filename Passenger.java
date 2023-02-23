@@ -1,3 +1,3 @@
-class Passenger {
-    //wondering if this worked
+ public class Passenger {
+    
 }
