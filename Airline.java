@@ -32,15 +32,14 @@ public class Airline {
     /*
      * I reccomend you start from index 0 then go till you find a null
      *  then jump to index 10 and then once you find a null in the 10s
-     * jump to the 20s
-     */
-    public void boardPlane(ArrayList<Passenger> passengersList){
+     * jump to the 20s.     */
+    public void boardPlane(Passenger[] passengersList){
         /*Write your code here */
 
     }
     //for anusha for example this method would be called readPassengersFromFile(delta.txt)
-    public ArrayList<Passenger> readPassengersFromFile(String filename){
-        ArrayList<Passenger> passengerList = new ArrayList<Passenger>();
+    public Passenger[] readPassengersFromFile(String filename){
+        Passenger[] passengerList = new Passenger[30];
         /*Write your code here */
         return passengerList;
     }
