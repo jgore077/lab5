@@ -56,31 +56,38 @@ public class Airline {
      * I reccomend you start from index 0 then go till you find a null
      *  then jump to index 10 and then once you find a null in the 10s
      * jump to the 20s.     */
-    public void boardPlane(Passenger[] passengersList){
-        /*Write your code here */
+    public static void boardPlane(Passenger[] passengersList){
+        int multipleOfTen=1;
+        for(int i=0;i<40;i++){
+            //returing and jumping
+            if(passengersList[i]==null){
+                if(i>20){
+                    return;
+                }
+                i = 10*multipleOfTen;
+                multipleOfTen++;
+            }
+            System.out.println(passengersList[i]);
+            passengersList[i]=null;
+
+        }
 
     }
     //for anusha for example this method would be called readPassengersFromFile(delta.txt)
     public static Passenger[] readPassengersFromFile(String filename) throws FileNotFoundException{
-        // Creating an array to store Passenger objects
-		Passenger[] passengerList = new Passenger[30];
+		Passenger[] passengerList = new Passenger[40];
 
 		// Scanner object to read from the file
+     
 		Scanner scanner = new Scanner(new File(filename));
+
 		//// Reading the current line and spliting it into an array of Strings
 		int index = 0;
 		while (scanner.hasNextLine()) {
 			String line = scanner.nextLine();
-			String[] data = line.split(",");
-
-			// Taking out the relevant data
-			String name = data[0];
-			String seatClass = data[1];
-			int seatNumber = Integer.parseInt(data[2]);//parse.Int converts the string to an int primitive data type
-
-
+			String[] data = line.split(" ");
 			//// Creating a new Passenger object using the data above and adding it to the passengerList array
-			passengerList[index] = new Passenger(name, seatClass, seatNumber);
+			passengerList[index] = new Passenger(data[0]+" "+data[1], data[3],Integer.parseInt(data[2]));
 			index++;
 		}
 		return passengerList;
@@ -92,6 +99,6 @@ public class Airline {
      * Designing testing will be wills job
      */
     public static void  main(String[] args) throws FileNotFoundException {
-        readPassengersFromFile("Delta.txt");
+      boardPlane(readPassengersFromFile("Delta.txt"));
     }
 }
