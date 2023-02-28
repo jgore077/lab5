@@ -1,5 +1,5 @@
 import java.util.*;
-
+import java.io.*;
 public class Airline {
 
     Passenger[] passengers;
@@ -7,7 +7,7 @@ public class Airline {
     int buisness=10;
     int economy =20;
     public Airline(){
-    passengers =new Passenger[30];
+    passengers =new Passenger[40];
     }
 
     public void addPassenger(Passenger person){
@@ -61,13 +61,12 @@ public class Airline {
 
     }
     //for anusha for example this method would be called readPassengersFromFile(delta.txt)
-    public Passenger[] readPassengersFromFile(String filename){
+    public static Passenger[] readPassengersFromFile(String filename) throws FileNotFoundException{
         // Creating an array to store Passenger objects
 		Passenger[] passengerList = new Passenger[30];
 
 		// Scanner object to read from the file
-		Scanner scanner = new Scanner(new File("Delta.txt"));
-
+		Scanner scanner = new Scanner(new File(filename));
 		//// Reading the current line and spliting it into an array of Strings
 		int index = 0;
 		while (scanner.hasNextLine()) {
@@ -92,8 +91,7 @@ public class Airline {
     /*
      * Designing testing will be wills job
      */
-    public static void  main(String[] args) {
-
-
+    public static void  main(String[] args) throws FileNotFoundException {
+        readPassengersFromFile("Delta.txt");
     }
 }
