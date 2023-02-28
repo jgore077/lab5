@@ -73,6 +73,32 @@ public class Airline {
         }
 
     }
+    
+    /*
+     * This method is intended to return a decision of whether
+     * to remove a passenger(5%), add a passenger(10%), or continue
+     * with the text files of passengers provided(85%).
+     * 
+     * This method returns either a 1, 2, or 3.
+     *  1 = remove passenger from the array
+     *  2 = add passenger
+     *  3 = continue without change
+     * 
+     */
+    public static int generateDecision() {
+        int x = (int) (Math.random()*100 + 1);
+        
+        if(x <= 5) {
+            return 1;
+        }
+        else if(x > 5 && x <= 15){
+            return 2;
+        }
+        else {
+            return 3;
+        }        
+    }
+    
 
     public void readPassengersFromFile(String filename) throws FileNotFoundException{
 
@@ -96,5 +122,8 @@ public class Airline {
       Airline delta = new Airline();
       delta.readPassengersFromFile("Delta.txt");
       delta.boardPlane();
+      
+      System.out.println("Generated Decision: " + generateDecision());
+      
     }
 }
