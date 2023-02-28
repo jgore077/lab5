@@ -60,33 +60,25 @@ public class Airline {
         /*Write your code here */
 
     }
-    //for anusha for example this method would be called readPassengersFromFile(delta.txt)
     public static Passenger[] readPassengersFromFile(String filename) throws FileNotFoundException{
         // Creating an array to store Passenger objects
-		Passenger[] passengerList = new Passenger[30];
-
-		// Scanner object to read from the file
+		Passenger[] passengerList = new Passenger[40];
+		
+	    // Scanner object to read from the file
 		Scanner scanner = new Scanner(new File(filename));
 		//// Reading the current line and spliting it into an array of Strings
 		int index = 0;
 		while (scanner.hasNextLine()) {
 			String line = scanner.nextLine();
-			String[] data = line.split(",");
-
-			// Taking out the relevant data
-			String name = data[0];
-			String seatClass = data[1];
-			int seatNumber = Integer.parseInt(data[2]);//parse.Int converts the string to an int primitive data type
-
-
+			String[] data = line.split(" ");
+			
 			//// Creating a new Passenger object using the data above and adding it to the passengerList array
-			passengerList[index] = new Passenger(name, seatClass, seatNumber);
+			//passengerList[index] = new Passenger(name, seatClass, seatNumber);
+			passengerList[index] = new Passenger(data[0]+" "+ data[1], data[3], Integer.parseInt(data[2]));
 			index++;
 		}
 		return passengerList;
     }
-
-
 
     /*
      * Designing testing will be wills job
