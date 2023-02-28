@@ -81,7 +81,6 @@ public class Airline {
 		Scanner scanner = new Scanner(new File(filename));
 
 		//// Reading the current line and spliting it into an array of Strings
-		int index = 0;
 		while (scanner.hasNextLine()) {
 			String line = scanner.nextLine();
 			String[] data = line.split(" ");
