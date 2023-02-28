@@ -56,25 +56,25 @@ public class Airline {
      * I reccomend you start from index 0 then go till you find a null
      *  then jump to index 10 and then once you find a null in the 10s
      * jump to the 20s.     */
-    public static void boardPlane(Passenger[] passengersList){
+    public void boardPlane(){
         int multipleOfTen=1;
         for(int i=0;i<40;i++){
             //returing and jumping
-            if(passengersList[i]==null){
+            if(passengers[i]==null){
                 if(i>20){
                     return;
                 }
                 i = 10*multipleOfTen;
                 multipleOfTen++;
             }
-            System.out.println(passengersList[i]);
-            passengersList[i]=null;
+            System.out.println(passengers[i]);
+            passengers[i]=null;
 
         }
 
     }
-    public static Passenger[] readPassengersFromFile(String filename) throws FileNotFoundException{
-		Passenger[] passengerList = new Passenger[40];
+
+    public void readPassengersFromFile(String filename) throws FileNotFoundException{
 
 		// Scanner object to read from the file
      
@@ -86,16 +86,16 @@ public class Airline {
 			String line = scanner.nextLine();
 			String[] data = line.split(" ");
 			//// Creating a new Passenger object using the data above and adding it to the passengerList array
-			passengerList[index] = new Passenger(data[0]+" "+data[1], data[3],Integer.parseInt(data[2]));
-			index++;
+			addPassenger(new Passenger(data[0]+" "+data[1], data[3],Integer.parseInt(data[2])));
 		}
-		return passengerList;
     }
 
     /*
      * Designing testing will be wills job
      */
     public static void  main(String[] args) throws FileNotFoundException {
-      boardPlane(readPassengersFromFile("Delta.txt"));
+      Airline delta = new Airline();
+      delta.readPassengersFromFile("Delta.txt");
+      delta.boardPlane();
     }
 }
