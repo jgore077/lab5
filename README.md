@@ -15,3 +15,13 @@ Reading the passenger files, check in
 
 Ahmad:
 Boarding and random chances
+
+Orders
+Search
+O(N) because it must look at every passenger
+
+Check In:
+O(N) because it loops through the entire team.
+
+Boarding:
+This is O(N) because it loops through the entire array
