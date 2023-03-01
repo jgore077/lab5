@@ -1,3 +1,4 @@
+package lab5;
 import java.util.*;
 import java.io.*;
 public class Airline {
@@ -6,8 +7,11 @@ public class Airline {
     int first = 10;
     int business = 10;
     int economy = 20;
-    public Airline(){
-    passengers = new Passenger[40];
+    String name = "";
+    
+    public Airline(String n){
+    	name = n;
+    	passengers = new Passenger[40];
     }
 
     public void addPassenger(Passenger person){
@@ -54,13 +58,13 @@ public class Airline {
     }
 
     /*
-     * I reccomend you start from index 0 then go till you find a null
-     *  then jump to index 10 and then once you find a null in the 10s
-     * jump to the 20s.     */
+     * I recommend you start from index 0 then go till you find a null
+     * then jump to index 10 and then once you find a null in the 10s
+     * jump to the 20s. */
     public void boardPlane(){
         int multipleOfTen = 1;
-        for(int i=0; i < 40; i++){
-            //returing and jumping
+        for(int i = 0; i < 40; i++){
+            //returning and jumping
             if(passengers[i] == null){
                 if(i > 20){
                     return;
@@ -68,8 +72,8 @@ public class Airline {
                 i = 10 * multipleOfTen;
                 multipleOfTen++;
             }
-            System.out.println(passengers[i]);
-            passengers[i]=null;
+            System.out.println(passengers[i].name + " has boarded flight " + name + " in class " + passengers[i].seatClass + " seat number " + passengers[i].seatNumber + ".");
+            passengers[i] = null;
 
         }
 
@@ -107,11 +111,11 @@ public class Airline {
      
 		Scanner scanner = new Scanner(new File(filename));
 
-		//// Reading the current line and spliting it into an array of Strings
+		// Reading the current line and splitting it into an array of Strings
 		while (scanner.hasNextLine()) {
 			String line = scanner.nextLine();
 			String[] data = line.split(" ");
-			//// Creating a new Passenger object using the data above and adding it to the passengerList array
+			// Creating a new Passenger object using the data above and adding it to the passengerList array
 			addPassenger(new Passenger(data[0] + " " + data[1], data[3], Integer.parseInt(data[2])));
 		}
     }
@@ -120,7 +124,7 @@ public class Airline {
      * Designing testing will be wills job
      */
     public static void  main(String[] args) throws FileNotFoundException {
-      Airline delta = new Airline();
+      Airline delta = new Airline("Delta");
       delta.readPassengersFromFile("Delta.txt");
       delta.boardPlane();
       
