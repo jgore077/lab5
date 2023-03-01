@@ -3,29 +3,30 @@ import java.io.*;
 public class Airline {
 
     Passenger[] passengers;
-    int first=10;
-    int buisness=10;
-    int economy =20;
+    int first = 10;
+    int business = 10;
+    int economy = 20;
     public Airline(){
-    passengers =new Passenger[40];
+    passengers = new Passenger[40];
     }
 
     public void addPassenger(Passenger person){
         switch(person.seatClass){
             case "F":
-                passengers[person.seatNumber-1] = person;
+                passengers[person.seatNumber - 1] = person;
                 first--;
                 break;
             case "B":
-                passengers[10+person.seatNumber-1] = person;
-                buisness--;
+                passengers[10 + person.seatNumber - 1] = person;
+                business--;
                 break;
             default:
-                passengers[20+person.seatNumber-1] = person;
+                passengers[20 + person.seatNumber - 1] = person;
                 economy--;
             }
     }
-    public void checkInAtGate(Airline plane,String passengerName){
+    
+    public void checkInAtGate(Airline plane, String passengerName){
         Passenger passenger = null;
 		// Find the passenger in the booked passengers list
 		for (Passenger pass : plane.passengers) {
@@ -57,14 +58,14 @@ public class Airline {
      *  then jump to index 10 and then once you find a null in the 10s
      * jump to the 20s.     */
     public void boardPlane(){
-        int multipleOfTen=1;
-        for(int i=0;i<40;i++){
+        int multipleOfTen = 1;
+        for(int i=0; i < 40; i++){
             //returing and jumping
-            if(passengers[i]==null){
-                if(i>20){
+            if(passengers[i] == null){
+                if(i > 20){
                     return;
                 }
-                i = 10*multipleOfTen;
+                i = 10 * multipleOfTen;
                 multipleOfTen++;
             }
             System.out.println(passengers[i]);
@@ -111,7 +112,7 @@ public class Airline {
 			String line = scanner.nextLine();
 			String[] data = line.split(" ");
 			//// Creating a new Passenger object using the data above and adding it to the passengerList array
-			addPassenger(new Passenger(data[0]+" "+data[1], data[3],Integer.parseInt(data[2])));
+			addPassenger(new Passenger(data[0] + " " + data[1], data[3], Integer.parseInt(data[2])));
 		}
     }
 
