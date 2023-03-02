@@ -28,7 +28,7 @@ This is O(N) because it loops through the entire array
 
 **Who Did What?**
 Will wrote the entire testing method which is contained in main.
-Anusha wrote the read from passengers method.
+Anusha wrote the read from passengers method and check in.
 Ahmad wrote the boarding method and random chance method.
 Jimmy wrote the Passenger class and Airline class, this means the constructor mainly but he also wrote the addPassenger method.
 
