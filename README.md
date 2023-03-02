@@ -25,3 +25,13 @@ O(N) because it loops through the entire team.
 
 Boarding:
 This is O(N) because it loops through the entire array
+
+**Who Did What?**
+Will wrote the entire testing method which is contained in main.
+Anusha wrote the read from passengers method.
+Ahmad wrote the boarding method and random chance method.
+Jimmy wrote the Passenger class and Airline class, this means the constructor mainly but he also wrote the addPassenger method.
+
+**Important to note**
+Anusha first commited the readPassengersFromFile method but Jimmy edited it because it had bugs.
+Ahmad made the board method and it worked but it could be simplified so it was.
